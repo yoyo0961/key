@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>登入網站</title>
+    <!-- 在<head>標籤的開始處加入網站圖標的代碼 -->
+        <link rel="icon" href="u3.jpg">
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .header {
+            height: 80px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .main {
+            min-height: 600px;
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form {
+            width: 400px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        .form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .form input {
+            width: 100%;
+            height: 30px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .form button {
+            width: 100%;
+            height: 40px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .form p {
+            color: #f00;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .footer {
+            height: 60px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">登入網站</div>
+        </div>
+        <div class="main">
+            <form class="form" id="form" onsubmit="return check()">
+                <h1>請輸入您的帳號和密碼</h1>
+                <label for="username">帳號</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">密碼</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">登入</button>
+                <p id="error"></p>
+            </form>
+        </div>
+        <div class="footer">
+            <p>版權所有 © 2023 登入網站</p>
+        </div>
+    </div>
+    <script>
+        // 定義您的帳號和密碼
+        var username = "pgl1128";
+        var password = "123456789";
+
+        // 定義您要跳轉的網頁
+        var url = "game.html";
+
+        // 定義一個函數來檢查用戶的輸入
+        function check() {
+            // 獲取用戶的輸入
+            var input_username = document.getElementById("username").value;
+            var input_password = document.getElementById("password").value;
+
+            // 獲取錯誤信息的元素
+            var error = document.getElementById("error");
+
+            // 判斷用戶的輸入是否符合您的帳號和密碼
+            if (input_username == username && input_password == password) {
+                // 如果符合，就跳轉到您的網頁
+                window.location.href = url;
+            } else {
+                // 如果不符合，就顯示錯誤信息
+                error.innerHTML = "帳號或密碼錯誤，請重新輸入";
+            }
+
+            // 阻止表單的默認提交行為
+            return false;
+        }
+    </script>
+</body>
+</html>
